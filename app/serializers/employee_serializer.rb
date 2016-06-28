@@ -1,4 +1,5 @@
 class EmployeeSerializer < ActiveModel::Serializer
-  attributes :id , :name
-  belongs_to :user
+  attributes :id , :firstname , :middlename , :lastname , :email , :contact ,:designation , :dateofjoin , :department, :location, :gender, :maritialstatus, :dob ,:temporaryaddress, :permenantaddress, :status
+
+
 end

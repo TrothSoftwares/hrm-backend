@@ -13,9 +13,24 @@
 ActiveRecord::Schema.define(version: 20160628090805) do
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "firstname"
+    t.string   "middlename"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "contact"
+    t.string   "designation"
+    t.date     "dateofjoin"
+    t.string   "department"
+    t.string   "location"
+    t.string   "gender"
+    t.string   "maritialstatus"
+    t.date     "dob"
+    t.text     "temporaryaddress"
+    t.text     "permenantaddress"
+    t.string   "status"
+    t.text     "url"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

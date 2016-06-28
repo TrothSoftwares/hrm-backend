@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_one :employee
   
+
   before_save :ensure_authentication_token
 
   devise :database_authenticatable, :recoverable, :trackable, :validatable
