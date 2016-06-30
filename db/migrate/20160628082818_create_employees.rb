@@ -17,6 +17,7 @@ class CreateEmployees < ActiveRecord::Migration[5.1]
       t.text :permenantaddress
       t.string :status
       t.text :url
+      t.text :pass
       t.timestamps
     end
   end

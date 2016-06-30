@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  
+  # belongs_to :employee
 
   before_save :ensure_authentication_token
 

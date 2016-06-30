@@ -17,7 +17,16 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
 
+
+
+
     if @employee.save
+
+      u = User.new(:email => employee_params[:email], :password =>  employee_params[:pass], :password_confirmation =>  employee_params[:pass])
+      u.save
+
+      # logger.info u.errors.full_messages
+
       render json: @employee, status: :created, location: @employee
     else
       render json: @employee.errors, status: :unprocessable_entity
@@ -48,6 +57,8 @@ class EmployeesController < ApplicationController
     def employee_params
       logger.info params
       params.fetch(:employee, {}).permit!
+
+
       # params[:employee].permit!
 
     end

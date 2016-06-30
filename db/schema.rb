@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160628090805) do
     t.text     "permenantaddress"
     t.string   "status"
     t.text     "url"
+    t.text     "pass"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
