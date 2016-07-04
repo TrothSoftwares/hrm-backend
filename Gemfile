@@ -30,7 +30,6 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'cloudinary'
-
 gem "mini_magick"
 
 

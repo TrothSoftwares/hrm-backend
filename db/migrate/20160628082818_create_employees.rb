@@ -18,6 +18,7 @@ class CreateEmployees < ActiveRecord::Migration[5.1]
       t.string :status
       t.text :url
       t.text :pass
+      t.string :role
       t.timestamps
     end
   end

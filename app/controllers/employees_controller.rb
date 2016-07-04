@@ -22,7 +22,7 @@ class EmployeesController < ApplicationController
 
     if @employee.save
 
-      u = User.new(:email => employee_params[:email], :password =>  employee_params[:pass], :password_confirmation =>  employee_params[:pass])
+      u = User.new(:email => employee_params[:email], :password =>  employee_params[:pass], :password_confirmation =>  employee_params[:pass], :role =>employee_params[:role])
       u.save
 
       # logger.info u.errors.full_messages

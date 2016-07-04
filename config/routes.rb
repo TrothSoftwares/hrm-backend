@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :leaverolls
   resources :employees
   
   devise_for :users, controllers: { sessions: 'sessions' }

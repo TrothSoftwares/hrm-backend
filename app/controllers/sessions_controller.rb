@@ -9,7 +9,9 @@ class SessionsController < Devise::SessionsController
          data = {
            user_id: resource.id,
            token: resource.authentication_token,
-           email: resource.email
+           email: resource.email,
+           role: resource.role,
+           employeeid :resource.employee_id
          }
          render json: data, status: :created
 

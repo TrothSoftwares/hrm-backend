@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628090805) do
+ActiveRecord::Schema.define(version: 20160704081515) do
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
@@ -30,8 +30,21 @@ ActiveRecord::Schema.define(version: 20160628090805) do
     t.string   "status"
     t.text     "url"
     t.text     "pass"
+    t.string   "role"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "leaverolls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "employee_id"
+    t.datetime "fromdate"
+    t.datetime "todate"
+    t.integer  "days"
+    t.string   "status"
+    t.text     "comments"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["employee_id"], name: "index_leaverolls_on_employee_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -47,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160628090805) do
     t.string   "last_sign_in_ip"
     t.string   "authentication_token",   default: "", null: false
     t.integer  "employee_id"
+    t.string   "role"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -54,5 +68,6 @@ ActiveRecord::Schema.define(version: 20160628090805) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "leaverolls", "employees"
   add_foreign_key "users", "employees"
 end

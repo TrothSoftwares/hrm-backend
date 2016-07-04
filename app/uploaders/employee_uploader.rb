@@ -4,12 +4,9 @@
   include Cloudinary::CarrierWave
   include CarrierWave::MiniMagick
 
-
-
   # def store_dir
   #   'public/uploads'
   # end
-
 
   version :thumb do
     process resize_to_fit: [200, 300]
