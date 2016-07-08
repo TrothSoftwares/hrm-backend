@@ -46,6 +46,6 @@ class LeaverollsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def leaveroll_params
-      params.fetch(:leaveroll, {})
+      params.fetch(:leaveroll, {}).permit!
     end
 end
