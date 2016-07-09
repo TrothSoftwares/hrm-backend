@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704081515) do
+ActiveRecord::Schema.define(version: 20160709085522) do
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160704081515) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.datetime "startsat"
+    t.datetime "endsat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "leaverolls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "employee_id"
     t.datetime "fromdate"
@@ -45,6 +53,19 @@ ActiveRecord::Schema.define(version: 20160704081515) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["employee_id"], name: "index_leaverolls_on_employee_id", using: :btree
+  end
+
+  create_table "salaries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "employee_id"
+    t.datetime "issuedate"
+    t.integer  "totaldays"
+    t.integer  "leavedays"
+    t.integer  "presentdays"
+    t.string   "status"
+    t.text     "comments"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["employee_id"], name: "index_salaries_on_employee_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,5 +90,6 @@ ActiveRecord::Schema.define(version: 20160704081515) do
   end
 
   add_foreign_key "leaverolls", "employees"
+  add_foreign_key "salaries", "employees"
   add_foreign_key "users", "employees"
 end
