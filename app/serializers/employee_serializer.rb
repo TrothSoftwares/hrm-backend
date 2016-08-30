@@ -1,8 +1,9 @@
 class EmployeeSerializer < ActiveModel::Serializer
-  attributes :id , :firstname , :middlename , :lastname , :email , :contact ,:designation , :dateofjoin , :department, :location, :gender, :maritialstatus, :dob ,:temporaryaddress, :permenantaddress, :status ,:url ,:fullurl ,:thumburl ,:pass,:role
+  attributes :id , :firstname , :middlename , :lastname , :email , :contact ,:designation , :dateofjoin , :department, :location, :gender, :maritialstatus, :dob ,:temporaryaddress, :permenantaddress, :status ,:url ,:fullurl ,:thumburl ,:pass,:role , :basic , :houserentallowance ,:adhoc ,:transport ,:misc , :statbonus , :provfund, :proftax , :incometax ,:essp ,:otherearningsnt ,:oncallshiftallowance ,:gross
 
   has_many :leaverolls
-  has_many :salaries
+  has_many :attendances
+
 
   def url
     object.url

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :salaries
+  resources :attendances
   resources :events
   resources :leaverolls
   resources :employees

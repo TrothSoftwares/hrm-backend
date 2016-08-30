@@ -4,7 +4,8 @@ class Employee < ApplicationRecord
 
 
     has_many :leaverolls
-    has_many :salaries
+    has_many :attendances
+
 
     mount_uploader :url, EmployeeUploader
      attr_accessor :is_thumbnable

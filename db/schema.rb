@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709085522) do
+ActiveRecord::Schema.define(version: 20160827014026) do
+
+  create_table "attendances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "employee_id"
+    t.integer  "totaldays"
+    t.integer  "leavedays"
+    t.integer  "presentdays"
+    t.string   "status"
+    t.text     "comments"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["employee_id"], name: "index_attendances_on_employee_id", using: :btree
+  end
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
@@ -31,8 +43,21 @@ ActiveRecord::Schema.define(version: 20160709085522) do
     t.text     "url"
     t.text     "pass"
     t.string   "role"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.decimal  "basic",                precision: 8, scale: 2
+    t.decimal  "houserentallowance",   precision: 8, scale: 2
+    t.decimal  "adhoc",                precision: 8, scale: 2
+    t.decimal  "transport",            precision: 8, scale: 2
+    t.decimal  "misc",                 precision: 8, scale: 2
+    t.decimal  "statbonus",            precision: 8, scale: 2
+    t.decimal  "provfund",             precision: 8, scale: 2
+    t.decimal  "proftax",              precision: 8, scale: 2
+    t.decimal  "incometax",            precision: 8, scale: 2
+    t.decimal  "essp",                 precision: 8, scale: 2
+    t.decimal  "otherearningsnt",      precision: 8, scale: 2
+    t.decimal  "oncallshiftallowance", precision: 8, scale: 2
+    t.decimal  "gross",                precision: 8, scale: 2
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,19 +78,6 @@ ActiveRecord::Schema.define(version: 20160709085522) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["employee_id"], name: "index_leaverolls_on_employee_id", using: :btree
-  end
-
-  create_table "salaries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "employee_id"
-    t.datetime "issuedate"
-    t.integer  "totaldays"
-    t.integer  "leavedays"
-    t.integer  "presentdays"
-    t.string   "status"
-    t.text     "comments"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["employee_id"], name: "index_salaries_on_employee_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -89,7 +101,7 @@ ActiveRecord::Schema.define(version: 20160709085522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "attendances", "employees"
   add_foreign_key "leaverolls", "employees"
-  add_foreign_key "salaries", "employees"
   add_foreign_key "users", "employees"
 end

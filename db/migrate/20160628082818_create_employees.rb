@@ -19,6 +19,19 @@ class CreateEmployees < ActiveRecord::Migration[5.1]
       t.text :url
       t.text :pass
       t.string :role
+      t.decimal :basic ,  :precision => 8, :scale => 2
+      t.decimal :houserentallowance ,  :precision => 8, :scale => 2
+      t.decimal :adhoc ,  :precision => 8, :scale => 2
+      t.decimal :transport ,  :precision => 8, :scale => 2
+      t.decimal :misc ,  :precision => 8, :scale => 2
+      t.decimal :statbonus ,  :precision => 8, :scale => 2
+      t.decimal :provfund ,  :precision => 8, :scale => 2
+      t.decimal :proftax ,  :precision => 8, :scale => 2
+      t.decimal :incometax ,  :precision => 8, :scale => 2
+      t.decimal :essp ,  :precision => 8, :scale => 2
+      t.decimal :otherearningsnt ,  :precision => 8, :scale => 2
+      t.decimal :oncallshiftallowance ,  :precision => 8, :scale => 2
+      t.decimal :gross ,  :precision => 8, :scale => 2
       t.timestamps
     end
   end
