@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827014026) do
+ActiveRecord::Schema.define(version: 20160908055215) do
 
   create_table "attendances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "employee_id"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20160827014026) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["employee_id"], name: "index_attendances_on_employee_id", using: :btree
+  end
+
+  create_table "bids", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "job_id"
+    t.integer  "employee_id"
+    t.integer  "position"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["job_id", "employee_id"], name: "index_bids_on_job_id_and_employee_id", using: :btree
   end
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,6 +75,17 @@ ActiveRecord::Schema.define(version: 20160827014026) do
     t.datetime "endsat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "header"
+    t.text     "desc"
+    t.text     "skills"
+    t.integer  "salary"
+    t.integer  "nofvaccancy"
+    t.string   "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "leaverolls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -4,6 +4,9 @@ class EmployeeSerializer < ActiveModel::Serializer
   has_many :leaverolls
   has_many :attendances
 
+  has_many :bids
+  has_many :jobs, through: :bids
+
 
   def url
     object.url
