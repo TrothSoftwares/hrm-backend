@@ -46,6 +46,6 @@ class BidsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bid_params
-      params.fetch(:bid, {})
+      params.fetch(:bid, {}).permit!
     end
 end

@@ -46,6 +46,6 @@ class JobsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def job_params
-      params.fetch(:job, {})
+      params.fetch(:job, {}).permit!
     end
 end
