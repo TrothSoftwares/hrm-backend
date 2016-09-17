@@ -22,8 +22,14 @@ class EmployeesController < ApplicationController
 
     if @employee.save
       employeeid = @employee.id # for getting employeeid from saved object
+
       u = User.new(:email => employee_params[:email], :password =>  employee_params[:pass], :password_confirmation =>  employee_params[:pass], :role =>employee_params[:role] , :employee_id => employeeid )
+
       u.save
+
+      attendance = Attendance.create(employee: @employee )
+
+      @attendance.save
 
       # logger.info u.errors.full_messages
 
@@ -55,7 +61,7 @@ class EmployeesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def employee_params
-      logger.info params
+      # logger.info params
       params.fetch(:employee, {}).permit!
 
 
