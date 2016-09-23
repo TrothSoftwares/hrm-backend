@@ -29,7 +29,7 @@ class EmployeesController < ApplicationController
 
       attendance = Attendance.create(employee: @employee )
 
-      @attendance.save
+      attendance.save
 
       # logger.info u.errors.full_messages
 

@@ -52,21 +52,21 @@ ActiveRecord::Schema.define(version: 20160908055215) do
     t.text     "url"
     t.text     "pass"
     t.string   "role"
-    t.decimal  "basic",                precision: 8, scale: 2
-    t.decimal  "houserentallowance",   precision: 8, scale: 2
-    t.decimal  "adhoc",                precision: 8, scale: 2
-    t.decimal  "transport",            precision: 8, scale: 2
-    t.decimal  "misc",                 precision: 8, scale: 2
-    t.decimal  "statbonus",            precision: 8, scale: 2
-    t.decimal  "provfund",             precision: 8, scale: 2
-    t.decimal  "proftax",              precision: 8, scale: 2
-    t.decimal  "incometax",            precision: 8, scale: 2
-    t.decimal  "essp",                 precision: 8, scale: 2
-    t.decimal  "otherearningsnt",      precision: 8, scale: 2
-    t.decimal  "oncallshiftallowance", precision: 8, scale: 2
-    t.decimal  "gross",                precision: 8, scale: 2
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.decimal  "basic",                precision: 8, scale: 2, default: "0.0"
+    t.decimal  "houserentallowance",   precision: 8, scale: 2, default: "0.0"
+    t.decimal  "adhoc",                precision: 8, scale: 2, default: "0.0"
+    t.decimal  "transport",            precision: 8, scale: 2, default: "0.0"
+    t.decimal  "misc",                 precision: 8, scale: 2, default: "0.0"
+    t.decimal  "statbonus",            precision: 8, scale: 2, default: "0.0"
+    t.decimal  "provfund",             precision: 8, scale: 2, default: "0.0"
+    t.decimal  "proftax",              precision: 8, scale: 2, default: "0.0"
+    t.decimal  "incometax",            precision: 8, scale: 2, default: "0.0"
+    t.decimal  "essp",                 precision: 8, scale: 2, default: "0.0"
+    t.decimal  "otherearningsnt",      precision: 8, scale: 2, default: "0.0"
+    t.decimal  "oncallshiftallowance", precision: 8, scale: 2, default: "0.0"
+    t.decimal  "gross",                precision: 8, scale: 2, default: "0.0"
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
