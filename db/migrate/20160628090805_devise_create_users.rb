@@ -19,7 +19,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
       t.string :authentication_token, null: false, default: ""
-      t.references :employee , index: true, foreign_key: true
+      t.integer :employee_id 
       t.string :role
 
 

@@ -51,6 +51,8 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   def destroy
     @employee.destroy
+
+    
   end
 
   private

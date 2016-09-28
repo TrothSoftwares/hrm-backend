@@ -17,5 +17,18 @@ class SessionsController < Devise::SessionsController
 
        end
      end
+
    end
+
+
+   def destroy
+   # authorize! :delete, @user
+   @user.destroy
+   respond_to do |format|
+     format.json { head :no_content }
+   end
+ end
+
+
+
 end
