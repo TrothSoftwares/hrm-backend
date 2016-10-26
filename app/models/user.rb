@@ -2,9 +2,20 @@ class User < ActiveRecord::Base
 
   # belongs_to :employee
 
+  has_many :bids , :dependent => :destroy
+  has_many :jobs, through: :bids
+
+  has_many :leaverolls , :dependent => :destroy
+  has_many :attendances , :dependent => :destroy
+
+
+  mount_uploader :url, EmployeeUploader
+   attr_accessor :is_thumbnable
+
+
   before_save :ensure_authentication_token
 
-  devise :database_authenticatable, :recoverable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :trackable, :validatable ,:registerable
 
   # Generate a token for this user if one does not already exist
   def ensure_authentication_token

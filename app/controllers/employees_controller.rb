@@ -18,13 +18,9 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
 
-
-
     if @employee.save
       employeeid = @employee.id # for getting employeeid from saved object
-
       u = User.new(:email => employee_params[:email], :password =>  employee_params[:pass], :password_confirmation =>  employee_params[:pass], :role =>employee_params[:role] , :employee_id => employeeid )
-
       u.save
 
       attendance = Attendance.create(employee: @employee )
@@ -52,7 +48,7 @@ class EmployeesController < ApplicationController
   def destroy
     @employee.destroy
 
-    
+
   end
 
   private

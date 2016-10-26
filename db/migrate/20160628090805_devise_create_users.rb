@@ -19,20 +19,44 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
       t.string :authentication_token, null: false, default: ""
-      t.integer :employee_id 
+      t.integer :employee_id
       t.string :role
 
 
-      ## Confirmable
-      # t.string   :confirmation_token
-      # t.datetime :confirmed_at
-      # t.datetime :confirmation_sent_at
-      # t.string   :unconfirmed_email # Only if using reconfirmable
+      t.string :firstname
+      t.string :middlename
+      t.string :lastname
+      t.string :contact
+      t.string :designation
+      t.date :dateofjoin
+      t.string :department
+      t.string :location
+      t.string :gender
+      t.string :maritialstatus
+      t.date :dob
+      t.text :temporaryaddress
+      t.text :permenantaddress
+      t.string :status
+      t.text :url
+      t.text :pass
+      t.string :role
+      t.decimal :basic ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :houserentallowance ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :adhoc ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :transport ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :misc ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :statbonus ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :provfund ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :proftax ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :incometax ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :essp ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :otherearningsnt ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :oncallshiftallowance ,  :precision => 8, :scale => 2 ,:default => 0
+      t.decimal :gross ,  :precision => 8, :scale => 2,:default => 0
 
-      ## Lockable
-      # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
-      # t.string   :unlock_token # Only if unlock strategy is :email or :both
-      # t.datetime :locked_at
+      # t.string   :confirmation_token
+
+
 
 
       t.timestamps null: false

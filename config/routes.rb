@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :leaverolls
   resources :employees
 
-   devise_for :users,  defaults: { format: :json }, controllers: { sessions: 'sessions' }
-  #  match 'users/id:' => 'sessions#destroy', via: :delete
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users,  defaults: { format: :json }, controllers: { sessions: 'sessions' , registrations: 'users' }
+  resources :users, only: [:index]
 end
