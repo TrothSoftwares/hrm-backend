@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :attendances , :dependent => :destroy
 
 
-  mount_uploader :url, EmployeeUploader
+  mount_uploader :url, UserUploader
    attr_accessor :is_thumbnable
 
 

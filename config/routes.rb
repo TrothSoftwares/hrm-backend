@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :employees
 
   devise_for :users,  defaults: { format: :json }, controllers: { sessions: 'sessions' , registrations: 'users' }
-  resources :users, only: [:index]
+  resources :users, only: [:index , :update ,:show]
 end

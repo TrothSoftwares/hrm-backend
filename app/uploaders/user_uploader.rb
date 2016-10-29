@@ -1,5 +1,5 @@
 # encoding: utf-8
-  class EmployeeUploader < CarrierWave::Uploader::Base
+  class UserUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
   include CarrierWave::MiniMagick

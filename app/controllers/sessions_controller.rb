@@ -7,11 +7,10 @@ class SessionsController < Devise::SessionsController
        format.json do
          self.resource = warden.authenticate!(auth_options)
          data = {
-           user_id: resource.id,
+           id: resource.id,
            token: resource.authentication_token,
            email: resource.email,
            role: resource.role,
-           employeeid: resource.employee_id
          }
          render json: data, status: :created
 
