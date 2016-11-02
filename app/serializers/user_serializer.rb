@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id , :firstname , :middlename , :lastname , :email , :contact ,:designation , :dateofjoin , :department, :location, :gender, :maritialstatus, :dob ,:temporaryaddress, :permenantaddress, :status ,:url ,:fullurl ,:thumburl ,:pass,:role , :basic , :houserentallowance ,:adhoc ,:transport ,:misc , :statbonus , :provfund, :proftax , :incometax ,:essp ,:otherearningsnt ,:oncallshiftallowance ,:gross
+  attributes :id , :firstname , :middlename , :lastname , :email , :contact ,:designation , :dateofjoin , :department, :location, :gender, :maritialstatus, :dob ,:temporaryaddress, :permenantaddress, :status ,:url ,:fullurl ,:thumburl ,:pass,:role , :basic , :houserentallowance ,:adhoc ,:transport ,:misc , :statbonus , :provfund, :proftax , :incometax ,:essp ,:otherearningsnt ,:oncallshiftallowance ,:gross , :passportno, :endqid, :endcontract
 
   has_many :leaverolls
   has_many :attendances

@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   respond_to :json
 
   def create
-    
-    @user = User.create(:email => params[:email], :password =>  params[:password], :password_confirmation =>  params[:password_confirmation], :firstname => params[:firstname] ,   :middlename => params[:middlename] , :lastname => params[:lastname] , :contact => params[:contact] , :designation => params[:designation] , :dateofjoin => params[:dateofjoin] , :department => params[:department], :location => params[:location] , :gender => params[:gender]  ,:maritialstatus => params[:maritialstatus] , :dob => params[:dob] ,  :temporaryaddress =>params[:temporaryaddress] , :permenantaddress =>params[:permenantaddress] ,:role =>params[:role]   )
+
+    @user = User.create(:email => params[:email], :password =>  params[:password], :password_confirmation =>  params[:password_confirmation], :firstname => params[:firstname] ,   :middlename => params[:middlename] , :lastname => params[:lastname] , :contact => params[:contact] , :designation => params[:designation] , :dateofjoin => params[:dateofjoin] , :department => params[:department], :location => params[:location] , :gender => params[:gender]  ,:maritialstatus => params[:maritialstatus] , :dob => params[:dob] ,  :temporaryaddress =>params[:temporaryaddress] , :permenantaddress =>params[:permenantaddress] ,:role =>params[:role] ,:pass=>params[:pass] , :passportno=>params[:passportno] , :endcontract=>params[:endcontract] , :endqid=>params[:endqid] )
     logger.info  @user.errors.full_messages
      attendance = Attendance.create(user: @user )
      attendance.save

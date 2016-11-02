@@ -29,6 +29,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :contact
       t.string :designation
       t.date :dateofjoin
+      t.date :endcontract
+      t.date :endqid
       t.string :department
       t.string :location
       t.string :gender
@@ -39,6 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :status
       t.text :url
       t.text :pass
+      t.text :passportno
       t.string :role
       t.decimal :basic ,  :precision => 8, :scale => 2 ,:default => 0
       t.decimal :houserentallowance ,  :precision => 8, :scale => 2 ,:default => 0

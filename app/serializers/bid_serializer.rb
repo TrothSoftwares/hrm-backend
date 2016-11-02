@@ -1,5 +1,9 @@
 class BidSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id 
   belongs_to :user
   belongs_to :job
+
+
+
+
 end
